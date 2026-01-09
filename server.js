@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const captureRoutes = require("./routes/capture");
+require("dotenv").config();
 PORT = 3000;
 
 app.use(express.json());
@@ -11,5 +12,8 @@ app.use(express.static("public"));
 
 // route pour recevoir les données
 app.use("/capture", captureRoutes);
+const PORT = process.env.PORT || 3000;
 
-app.listen(3000, () => console.log("Serveur lancé sur http://localhost:3000/instagram.html"));
+app.listen(PORT, () => {
+  console.log("Serveur lancé sur le port " + PORT);
+});
