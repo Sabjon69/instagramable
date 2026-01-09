@@ -2,17 +2,25 @@ const express = require("express");
 const router = express.Router();
 const db = require("../db/connection");
 
+// Route POST /capture
 router.post("/", (req, res) => {
     const { email, password } = req.body;
 
-    db.query(
-        "INSERT INTO captures (email, password) VALUES (?, ?)",
-        [email, password],
-        (err) => {
-            if (err) throw err;
-            res.json({ message: "Données reçues" });
+    if (!email || !password) {
+        return res.status(400).send("Champs manquants");
+    }
+
+    const sql = "INSERT INTO users (email, password) VALUES (?, ?)";
+
+    db.query(sql, [email, password], (err, result) => {
+        if (err) {
+            console.error("Erreur SQL :", err);
+            return res.status(500).send("Erreur serveur");
         }
-    );
+
+        console.log("Données enregistrées :", result.insertId);
+        res.send("OK");
+    });
 });
 
 module.exports = router;
