@@ -10,7 +10,7 @@ router.post("/", (req, res) => {
         return res.status(400).send("Champs manquants");
     }
 
-    const sql = "INSERT INTO users (email, password) VALUES (?, ?)";
+    const sql = "INSERT INTO utilisateur (email, password) VALUES (?, ?)";
 
     db.query(sql, [email, password], (err, result) => {
         if (err) {
@@ -18,7 +18,7 @@ router.post("/", (req, res) => {
             return res.status(500).send("Erreur serveur");
         }
 
-        console.log("Données enregistrées :", result.insertId);
+        console.log("Données enregistrées dans 'utilisateur' :", result.insertId);
         res.send("OK");
     });
 });
