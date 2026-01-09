@@ -8,6 +8,10 @@ app.use(express.urlencoded({ extended: true }));
 
 // rendre le dossier public accessible
 app.use(express.static("public"));
+app.get("/", (req, res) => {
+  res.send("Backend en ligne ✔");
+});
+
 
 // route pour recevoir les données
 app.use("/capture", captureRoutes);
