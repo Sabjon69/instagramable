@@ -9,8 +9,9 @@ app.use(express.urlencoded({ extended: true }));
 // rendre le dossier public accessible
 app.use(express.static("public"));
 app.get("/", (req, res) => {
-  res.send("Backend en ligne ✔");
+  res.sendFile(__dirname + "/public/instagram.html");
 });
+
 
 
 // route pour recevoir les données
