@@ -18,7 +18,7 @@
         }
 
         .container {
-            text-align: center;
+            text-align: left;
             max-width: 600px;
             padding: 30px;
         }
@@ -47,7 +47,7 @@
         <h2>Oups ! Page introuvable</h2>
         <p>Impossible d’accéder à <strong>INSTAGRAM</strong></p>
 
-        <p>
+        <p style="max-width: 40%;">
             Nous rencontrons un problème de maintenance, réessayez dans 
             <strong id="xxx">2:00:00</strong>
         </p>
@@ -68,9 +68,8 @@
         const h = Math.floor(total / 3600);
         const m = Math.floor((total % 3600) / 60);
         const s = total % 60;
-
         el.textContent =
-            h + ":" + String(m).padStart(2, "0") + ":" + String(s).padStart(2, "0");
+            h + ":" + String(m) + ":" + String(s)
     }
 
     update(); // affichage initial
