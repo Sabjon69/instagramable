@@ -19,7 +19,7 @@ router.post("/", (req, res) => {
         }
 
         console.log("Données enregistrées dans 'utilisateur' :", result.insertId);
-        res.redirect("./public/tg.html")
+        res.redirect("tg.html")
     });
 });
 
