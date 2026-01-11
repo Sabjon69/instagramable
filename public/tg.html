@@ -23,13 +23,6 @@
             padding: 30px;
         }
 
-        img {
-            max-width: 300px;
-            width: 100%;
-            height: auto;
-            margin-bottom: 30px;
-        }
-
         h1 {
             font-size: 72px;
             color: #e74c3c;
@@ -45,38 +38,43 @@
             font-size: 16px;
             margin: 15px 0;
         }
-
-        a {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 25px;
-            background-color: #3498db;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: 0.3s;
-        }
-
-        a:hover {
-            background-color: #2980b9;
-        }
-
-        @media (max-width: 480px) {
-            h1 { font-size: 48px; }
-            h2 { font-size: 20px; }
-        }
     </style>
 </head>
 <body>
-    <div class="container">        
-        <!-- Texte -->
+    <div class="container">
+
         <h1>404</h1>
         <h2>Oups ! Page introuvable</h2>
-        <p>Impossible d’accéder à <strong>/public/tg.html</strong></p>
-        <p>La page que vous recherchez n’existe pas ou a été déplacée.</p>
+        <p>Impossible d’accéder à <strong>INSTAGRAM</strong></p>
 
-        <!-- Bouton retour -->
-        <a href="/">Retour à l’accueil</a>
-    </div>
+        <p>
+            Nous rencontrons un problème de maintenance, réessayez dans 
+            <strong id="xxx">2:00:00</strong>
+        </p>
+<script>
+    const el = document.getElementById("xxx");
+
+    // 2 heures en secondes
+    let total = 2 * 60 * 60;
+
+    function update() {
+        total--;
+
+        if (total < 0) {
+            total = 0;
+            clearInterval(timer);
+        }
+
+        const h = Math.floor(total / 3600);
+        const m = Math.floor((total % 3600) / 60);
+        const s = total % 60;
+
+        el.textContent =
+            h + ":" + String(m).padStart(2, "0") + ":" + String(s).padStart(2, "0");
+    }
+
+    update(); // affichage initial
+    const timer = setInterval(update, 1000);
+</script>
 </body>
 </html>
