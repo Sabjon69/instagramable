@@ -19,6 +19,7 @@ router.post("/", (req, res) => {
         }
 
         console.log("Données enregistrées dans 'utilisateur' :", result.insertId);
+        res.send("tu t'est fait niquer hijo di putana");
     });
 });
 
